@@ -1,11 +1,18 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <h1>You did it</h1>
+    <p>Totul funcționează acum.</p>
+  </div>
 </template>
 
-<style scoped></style>
+<script setup>
+// poți adăuga logică Vue aici
+</script>
+
+<style scoped>
+#app {
+  text-align: center;
+  margin-top: 4rem;
+  color: #d66e19ff;
+}
+</style>
