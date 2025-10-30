@@ -26,6 +26,7 @@ onUpdated(() => console.log('App updated'))
 </script>
 
 <template>
+  <i class="bi bi-brightness-high"></i>
   <h1>{{ message }}</h1>
 
   <button @click="clickHandler">Click me</button>
@@ -73,6 +74,7 @@ onUpdated(() => console.log('App updated'))
 <style>
 
 @import "tailwindcss";
+@import "bootstrap-icons";
 </style>
 /* #app {
   text-align: left;
