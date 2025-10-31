@@ -7,6 +7,6 @@ const target = ref('_blank')
 
 <template>
     <br>
-    <a :href="link" target="_blank">Visit Emanuel website</a>
+    <a :href="link" target="_blank" class="bg-red-200 text-white py-1 rounded ">Visit Emanuel website</a>
     <br>
 </template>
