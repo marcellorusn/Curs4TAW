@@ -1,51 +1,50 @@
 <script setup>
-import { ref, onMounted, onUpdated } from 'vue'
-import YouDidIt from './YouDidIt.vue'
-import BindLink from './BindLink.vue'
-import RandomNumber from './RandomNumber.vue'
-import Counter from './Counter.vue'
+import YouDidIt from './components/YouDidIt.vue'
+import BindLink from './components/BindLink.vue'
+import RandomNumber from './components/RandomNumber.vue'
+import Counter from './components/Counter.vue'
+import { onMounted, onUpdated } from 'vue'
 
-const counter = ref(0)
+onMounted(() => {
+  console.log('App mounted')
+})
+
+onUpdated(() => {
+  console.log('App updated')
+})
+
+import { ref } from 'vue'
+
+
 
 const students = ref([
   { name: 'Miriam', grade: 10 },
-  { name: 'Marius', grade: 9 },
-  { name: 'Luca', grade: 6 },
-  { name: 'Ion', grade: 8 }
+  { name: 'Leo', grade: 9 },
+  { name: 'Patrick', grade: 8 },
+  { name: 'Andrei', grade: 7 }
 ])
-
-
-
-
-
-onMounted(() => console.log('App mounted'))
-onUpdated(() => console.log('App updated'))
 </script>
 
-<template>
 
+<template>
   <YouDidIt />
-  <hr />
   <BindLink />
-  <hr />
   <RandomNumber />
-  <hr />
   <Counter />
 
-  <i class="bi bi-brightness-high"></i>
 
-  <hr />
-
+  <hr>
   <h3>Test v-for</h3>
-
   <ul>
-    <li v-for="(student, index) of students" :key="index" class="inline-block bg-blue-200 mb-4 mr-2 p-2 rounded-lg">
-      Name {{ student.name }}, Grade {{ student.grade }}
+    <li v-for="(student, index) of students" :key="index">
+      Name {{ student.name }} > Grade {{ student.grade }}
     </li>
   </ul>
+
 </template>
 
+
 <style>
-@import "tailwindcss";
 @import "bootstrap-icons";
+@import "tailwindcss";
 </style>
