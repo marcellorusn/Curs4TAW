@@ -1,13 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+defineProps(['icon'])
+defineEmits(['iconClick'])
 </script>
 
 <template>
-  <div class="p-4">
-    <h3></h3>
-    <p></p>
-    <i class="bi bi-airplane-engines text-2xl"></i>
-    <i class="bi bi-alarm text-2xl ml-4"></i>
-    <i class="bi bi-battery-full text-2xl ml-4"></i>
-  </div>
+     <i :class="`bi bi-${icon}`" @click="$emit('iconClick')"></i>
 </template>
+
+<!-- 
+<style scoped>
+ @import "bootstrap-icons";
+</style> 
+-->

@@ -1,10 +1,12 @@
 <script setup>
+const props = defineProps(['startCount'])
+    
 import { ref } from 'vue'
+const counter = ref(props.startCount || 0)
 
-const counter = ref(0)
-const incrementCounter = () => {
     counter.value++
-}
+
+
 </script>
 
 <template>
