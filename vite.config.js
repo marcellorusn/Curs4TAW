@@ -1,24 +1,60 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
+import { VitePWA } from "vite-plugin-pwa";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
-//import tailwindcss from '@tailwindcss/vite'
+// Tailwind is usually imported via CSS, but if using plugin:
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '',
+  base: "",
   plugins: [
-    tailwindcss(),
     vue(),
+    tailwindcss(),
     vueDevTools(),
+    VitePWA({
+      registerType: "autoUpdate",
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+      },
+      devOptions: {
+        enabled: true,
+      },
+      manifest: {
+        name: "Curs4 TAW",
+        short_name: "Curs4",
+        description: "Aplicație Vue cu PWA - Curs Tehnici și Aplicații Web",
+        theme_color: "#169bcb",
+        background_color: "#ffffff",
+        display: "standalone",
+        scope: "/",
+        start_url: "/",
+        icons: [
+          {
+            src: "icons/favicon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+            purpose: "any",
+          },
+          {
+            src: "icons/favicon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+            purpose: "maskable",
+          },
+        ],
+      },
+      screenshots: [],
+    }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
   define: {
-    __VUE_OPTIONS_API__: false
+    __VUE_OPTIONS_API__: false,
   },
-})
+});

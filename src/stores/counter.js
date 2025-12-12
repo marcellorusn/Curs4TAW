@@ -1,0 +1,20 @@
+import { defineStore } from "pinia";
+
+export const useCounter = defineStore("counter", {
+  state: () => ({
+    count: 0,
+    level: 1,
+  }),
+  getters: {
+    doubleCount: (state) => state.count * 2,
+    tripleCount: (state) => state.count * 3,
+  },
+  actions: {
+    countUp() {
+      this.count++;
+    },
+    countDown() {
+      this.count--;
+    },
+  },
+});

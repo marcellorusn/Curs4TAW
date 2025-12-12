@@ -1,17 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 
-import Flowers from '@/pages/Flowers.vue'
-import Tests from '@/pages/Tests.vue'
+import Flowers from "@/pages/Flowers.vue";
+import Tests from "@/pages/Tests.vue";
+import Computed from "@/pages/Computed.vue";
+import StorePage from "@/pages/StorePage.vue";
+import TaskPage from "@/pages/TaskPage.vue";
 
 const routes = [
-    { path: '/', component: Tests },
-    { path: '/flowers', component: Flowers }
-]
+  { path: "/", component: Tests },
+  { path: "/flowers", component: Flowers },
+  { path: "/computed", component: Computed },
+  { path: "/stores", component: StorePage },
+  { path: "/tasks", component: TaskPage },
+];
 
-const router = createRouter({   
-    history: createWebHistory(),
-    routes,
-    linkActiveClass: 'btn-primary'
-})
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+  linkActiveClass: "btn-primary border",
+});
 
-export default router
+export default router;
